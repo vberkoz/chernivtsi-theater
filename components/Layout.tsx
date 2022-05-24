@@ -1,47 +1,47 @@
 import React, { ReactNode } from "react";
-import Header from "./Header";
+import Header from "./Header2";
 
 type Props = {
   children: ReactNode;
 };
 
 const Layout: React.FC<Props> = (props) => (
-  <div>
+  <div className="container">
     <Header />
-    <div className="layout">{props.children}</div>
+    <div>{props.children}</div>
     <style jsx global>{`
-      html {
-        box-sizing: border-box;
-      }
-
-      *,
-      *:before,
-      *:after {
-        box-sizing: inherit;
-      }
-
       body {
-        margin: 0;
-        padding: 0;
-        font-size: 16px;
+        font-size: 11pt;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
           Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
           "Segoe UI Symbol";
-        background: rgba(0, 0, 0, 0.05);
+        color: #999;
+        background-color: #111;
       }
 
-      input,
-      textarea {
-        font-size: 16px;
+      .container {
+        width: 960px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        min-height: 98vh;
       }
 
-      button {
+      a, a:visited {
+        text-decoration: none;
+        color: #999;
+      }
+
+      a:hover {
+        text-decoration: underline;
         cursor: pointer;
       }
-    `}</style>
-    <style jsx>{`
-      .layout {
-        padding: 0 2rem;
+
+      header, nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 0;
       }
     `}</style>
   </div>

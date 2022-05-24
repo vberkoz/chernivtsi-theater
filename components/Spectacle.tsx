@@ -1,32 +1,37 @@
 import React from 'react'
 import Router from 'next/router'
 import Image from 'next/image'
-import moment from 'moment'
 
-export type PostType = {
+export type SpectacleType = {
   id: string
+  type: string
   title: string
-  content: string
+  excerpt: string
+  author: string
+  duration: string
   published: string
 }
 
-const Post: React.FC<{ post: PostType }> = ({ post }) => {
+const Spectacle: React.FC<{ spectacle: SpectacleType }> = ({ spectacle }) => {
   return (
     <div>
-      <a onClick={() => Router.push("/post/[id]", `/post/${post.id}`)}>
+      <a onClick={() => Router.push("/spectacle/[id]", `/spectacle/${spectacle.id}`)}>
+        <p>{spectacle.type}</p>
         <Image
           priority
           layout="responsive"
           objectFit="cover"
-          src={`/img/${post.id}.jpg`}
-          height={30}
+          src={`/img/${spectacle.id}.jpg`}
+          height={130}
           width={100}
-          alt={post.id}
+          alt={spectacle.id}
         />
-        <h2>{post.title}</h2>
-        <p>{post.content}</p>
+        <h2>{spectacle.title}</h2>
+        <p className='excerpt'>{spectacle.excerpt}</p>
       </a>
-      <p>{moment(post.published).fromNow()}</p>
+      <a href="#">{spectacle.author}</a>
+      {/* <p>{spectacle.published}</p> */}
+      <p>Duration: {spectacle.duration}</p>
 
       <style jsx> {`
         a h2 {
@@ -42,11 +47,13 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
           display: -webkit-box;
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
+        }
+        .excerpt {
           min-height: 60px;
         }
       `} </style>
     </div>
-  )
+  );
 }
 
-export default Post
+export default Spectacle;
