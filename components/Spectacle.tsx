@@ -49,7 +49,7 @@ const Spectacle: React.FC<{ spectacle: SpectacleType }> = ({ spectacle }) => {
           -webkit-box-orient: vertical;
         }
         .excerpt {
-          min-height: 60px;
+          min-height: 54px;
         }
       `} </style>
     </div>

@@ -42,7 +42,7 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
           display: -webkit-box;
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
-          min-height: 60px;
+          min-height: 54px;
         }
       `} </style>
     </div>

@@ -15,10 +15,12 @@ export const getStaticProps: GetStaticProps = async () => {
   posts.map(post => {
     post.published = JSON.parse(JSON.stringify(post.published))
   })
-  return { props: {
-    spectacles,
-    posts
-  } }
+  return {
+    props: {
+      spectacles,
+      posts
+    }
+  }
 }
 
 type Props = {
